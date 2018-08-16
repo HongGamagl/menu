@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Demo menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="header-container">
+        <div class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-top-left icon-col">
+                        <a href="" class="icon icon-global">US English</a>
+                        <a href="" class="icon icon-local"></a>
+                    </div>
+                    <div class="header-top-center">
+                        <a href="">
+                            <h1>Ralph Lauren</h1>
+                        </a>
+                    </div>
+                    <div class="header-top-right icon-col">
+                        <ul>
+                            <li data-toggle-search><a href="#" class="icon icon-search"><span class="pc-only">Search</span></a></li>
+                            <li class="click pc-only" data-toggle-user><a href="#" class="icon icon-user"></a></li>
+                            <li><a href="#" class="icon icon-bag"></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="user-inner" data-toggle-inneruser>
+                        <div class="user-inner-box">
+                            <div class="user-inner-box-old">
+                                <h3>RETURNING CUSTOMERS</h3>
+                                <form action="">
+                                    <input type="text" placeholder="Email Address">
+                                    <input type="passwork" placeholder="Passwork">
+                                    <a href="#">Forgot Password?</a>
+                                    <button>Sign in</button>
+                                </form>
+                            </div>
+                            <div class="user-inner-box-new">
+                                <h3>New Customers</h3>
+                                <button>Create Account</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="headermenu" id="menures">
+                <ul class="headermenu-level1">
+                    <li class="sp-only show-sp">
+                        <p>Show<span class="closemenu">x</span></p>
+                    </li>
+                    <li class="headermenu-item" data-toggle-sub><a href="#">man</a>
+                        <div class="headermenu-dropdown" data-toggle-drop>
+                            <div class="container">
+                                <p class="prev" data-toggle-prev><span><</span>Back</p>
+                                <div class="headermenu-content">
+                                    <h3 class="icon-right-single" data-toggle-level2="subchild1">Featured</h3>
+                                    <ul class="headermenu-level2" id="subchild1-content">
+                                        <li><a href="#">New Arrivals</a></li>
+                                        <li><a href="#">Celebrating 50 Years</a></li>
+                                        <li><a href="#">The Polo Shirt Guide</a></li>
+                                    </ul>
+                                </div>
+                                <div class="headermenu-content">
+                                    <h3 class="icon-right-single" data-toggle-level2="subchild2" >Featured</h3>
+                                    <ul class="headermenu-level2" id="subchild2-content">
+                                        <li><a href="#">New Arrivals</a></li>
+                                        <li><a href="#">Celebrating 50 Years</a></li>
+                                        <li><a href="#">The Polo Shirt Guide</a></li>
+                                    </ul>
+                                </div>
+                                <div class="headermenu-content">
+                                    <h3 class="icon-right-single" data-toggle-level2="subchild3">Featured</h3>
+                                    <ul class="headermenu-level2" id="subchild3-content">
+                                        <li><a href="#">New Arrivals</a></li>
+                                        <li><a href="#">Celebrating 50 Years</a></li>
+                                        <li><a href="#">The Polo Shirt Guide</a></li>
+                                    </ul>
+                                </div>
+                                <div class="headermenu-content">
+                                    <h3 class="icon-right-single" data-toggle-level2="subchild4">Featured</h3>
+                                    <ul class="headermenu-level2" id="subchild4-content">
+                                        <li><a href="#">New Arrivals</a></li>
+                                        <li><a href="#">Celebrating 50 Years</a></li>
+                                        <li><a href="#">The Polo Shirt Guide</a></li>
+                                    </ul>
+                                </div>
+                                <div class="headermenu-content">
+                                    <h3 class="icon-right-single" data-toggle-level2="subchild5">Featured</h3>
+                                    <ul class="headermenu-level2" id="subchild5-content">
+                                        <li><a href="#">New Arrivals</a></li>
+                                        <li><a href="#">Celebrating 50 Years</a></li>
+                                        <li><a href="#">The Polo Shirt Guide</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">woman</a></li>
+                    <li><a href="#">kid</a></li>
+                    <li><a href="#">baby</a></li>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">customize</a></li>
+                    <li><a href="#">brands</a></li>
+                    <li><a href="#">sale</a></li>
+                </ul>
+            </div>
+            <div class="dot" data-toggle-menu>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script>
+        var dot = document.querySelector("[data-toggle-menu]");
+        var contentmenu = document.getElementById("menures");
+        var title = contentmenu.querySelector("[data-toggle-drop]");
+        var closemenu = document.querySelector(".closemenu");
+        
+
+        dot.addEventListener("click", function() {
+          contentmenu.classList.add("show-modal");
+        });
+        closemenu.addEventListener("click", function() {
+          contentmenu.classList.remove("show-modal");
+        });
+
+        var menusub = document.querySelector("[data-toggle-sub]");
+        var prev = document.querySelector("[data-toggle-prev]");
+        
+        menusub.addEventListener("click", function(e) {
+          e.stopPropagation();
+          title.classList.remove("hide");
+          title.classList.add("show");
+        });
+        prev.addEventListener("click", function(e){
+          e.stopPropagation();
+          title.classList.add("hide");
+          title.classList.remove("show");
+        });
+
+        var menuChild = document.querySelector("[data-toggle-level2]");
+        for(var i = 0; i < menuChild.length; i++) {
+            menuChild[i].addEventListener("click", function(e) {
+            var valueMenuChild = this.getAttribute("data-toggle-level2");
+            var contentChild = valueMenuChild + "-content";
+
+            console.log(valueMenuChild);
+                
+
+            });
+        }
+
+        // var inforTab = idTab+"-content";
+        // menuchild.addEventListener("click", function() {
+        //   inforTab.classList.add("showchild");
+        // });
+
+    </script>
+</body>
+</html>
+
